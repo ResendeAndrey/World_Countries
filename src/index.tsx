@@ -13,7 +13,7 @@ ReactDOM.render(
         {theme => (
           
           <ThemeProvider theme={theme}>
-            {console.log(theme)}
+            
             <App />
           </ThemeProvider>
     )}

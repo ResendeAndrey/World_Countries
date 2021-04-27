@@ -1,23 +1,23 @@
 const dropDownOptions = [
   {
     value: 'Africa',
-    text: 'Africa',
+    label: 'Africa',
   },
   {
     value: 'America',
-    text: 'America',
+    label: 'America',
   },
   {
     value: 'Asia',
-    text: 'Asia',
+    label: 'Asia',
   },
   {
     value: 'Europe',
-    text: 'Europe',
+    label: 'Europe',
   },
   {
     value: 'Oceania',
-    text: 'Oceania',
+    label: 'Oceania',
   },
 ]
 

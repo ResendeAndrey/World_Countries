@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 import * as colors from './colors'
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
@@ -28,7 +28,9 @@ button:hover, a:hover {
 
 a {
   text-decoration: none;
-  color: ${colors.gray800};
+}
+h1, h2, h3, h4, h5, h6, a, span{
+  color: ${(props:any) => props.theme.theme.colors.color};
 }
 
 ` 

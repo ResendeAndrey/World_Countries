@@ -22,7 +22,6 @@ const [theme, setTheme] = useState(light)
 
 const handleToggleTheme = () =>{
   setTheme(theme.title === 'dark' ? light : dark)
-  console.log(theme)
 }
 
   return (

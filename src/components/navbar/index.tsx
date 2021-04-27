@@ -6,14 +6,14 @@ import { NavbarContainer } from './style';
 import { ThemeContext } from '../../context/theme';
 
 const Navbar: React.FC = () => {
-  const {handleToggleTheme } = useContext(ThemeContext)
+  const {theme, handleToggleTheme } = useContext(ThemeContext)
 
   return (
     <NavbarContainer>
       <a href=""><h1> Where is in the world?</h1></a>
       <div onClick={handleToggleTheme}>
         <NightsStayIcon />
-        <span>Darkmode</span>
+        <span>{theme.title === "dark" ? "Light Mode" : "Dark Mode"}</span>
       </div>
     </NavbarContainer>
   );
