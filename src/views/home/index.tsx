@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   const [countries, setCountries] = useState<ICountriesProps[]>([] as ICountriesProps[])
   const [searchCountries, setSearchCountries] = useState<ICountriesProps[]>([])
   const [page, setPage] = useState(1)
-  const [rowsPerPage, setRowsPerPage] = useState(12)
+  const rowsPerPage = 12
   const [filterValues, setFilterValues] = useState({} as FilterValuesProps)
 
   const dataRender = searchCountries.length >0 ? searchCountries : countries
