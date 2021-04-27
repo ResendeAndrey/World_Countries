@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Instruções para uso
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+*Após o clone do repositório digite no console yarn para instalar as dependências.
+*Existe um arquivo chamado .env.example, copie os dados dele e crie um novo arquivo chamado .env
+*Execute a aplicação com o yarn start
 
-In the project directory, you can run:
 
-### `yarn start`
+# API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*Api utilizada no projeto é a <a href=“https://restcountries.eu/“>REST COUNTRIES</a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+# Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*Visualizar todos os países da API na página inicial. Existe uma paginação de 12 países por página
+*Buscar por países utilizando uma input no topo da página.
+*Filtrar os países da página inicial por região.
+*Clicar em um país para ver mais detalhes.
+*Dentro da página de detalhes, clicar nos países que fazem fronteira com o país selecionado.
+*Dark Mode e Light Mode habilitados
 
-### `yarn build`
+# Tecnologias Utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*Projeto criado com React
+*Design System feito com Material UI
+*Serviços da API feitos com Axios
+*Dark Mode e Light Mode feitos com Context
+*Estilos feitos com Styled-Components
+*Titulos dinâmicos feitos com React-Helmet
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Demostração
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/44928849/116284026-fdb40880-a762-11eb-9f57-0bd119c21de2.png)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="center">
+   https://wolrdcountries.netlify.app/
+</p>
