@@ -5,6 +5,8 @@ export interface ICountriesProps {
   population: number; 
   flag: string; 
   numericCode: string; 
+  altSpellings: string[];
+  alpha3Code: string;
 }
 
 export interface FilterValuesProps {

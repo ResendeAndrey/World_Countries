@@ -39,10 +39,19 @@ export const HomPage = styled.div`
     }
     }  
   } 
+  .dropDownClearIcon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
     .inputDropDown {
+      width: 10rem;
       background-color: ${props => props.theme.theme.colors.background_navbar};
       label {
         color: ${props => props.theme.theme.colors.color}
+      }
+      @media only screen and (max-width: 800px) {
+        margin: 1rem 0;
       }
     }
 

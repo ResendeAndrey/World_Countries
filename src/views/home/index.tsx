@@ -3,7 +3,7 @@ import { HomPage } from './style';
 
 
 import dropDownOptions from './utils';
-import { Search } from '@material-ui/icons'
+import { Search, Clear } from '@material-ui/icons'
 import { InputAdornment, MenuItem, TextField  } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import { FilterValuesProps, ICountriesProps } from './types';
@@ -13,13 +13,14 @@ import CardCountries from '../../components/cardCountries';
 
 const Home: React.FC = () => {
   const [countries, setCountries] = useState<ICountriesProps[]>([] as ICountriesProps[])
-  const [searchCountries, setSearchCountries] = useState<ICountriesProps[]>([])
+  const [searchCountries, setSearchCountries] = useState<ICountriesProps[]>()
   const [page, setPage] = useState(1)
   const rowsPerPage = 12
   const [filterValues, setFilterValues] = useState({} as FilterValuesProps)
 
-  const dataRender = searchCountries.length >0 ? searchCountries : countries
+  const dataRender = !searchCountries ? countries : searchCountries
 
+  console.log(searchCountries)
   const urlAPi = filterValues.field ? `/region/${filterValues.field}` : '/all'
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Home: React.FC = () => {
   const indexOfLastPost = page * rowsPerPage;
   const indexOfFirstPost = indexOfLastPost - rowsPerPage;
   const currentPosts = dataRender.slice(indexOfFirstPost, indexOfLastPost)
-  const totalPages = Math.floor((countries.length / 12) +1)
+  const totalPages = Math.floor((dataRender.length / 12) +1)
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     if(event.target.value) {
@@ -54,43 +55,50 @@ const Home: React.FC = () => {
         field: event.target.value
       })
     }
+
   }
+  console.log(filterValues)
   return (
     <HomPage>
       <nav>
-     <div className="inputSearch">    
-      <TextField 
-        id="filled"
-        type="string" 
-        
-        InputProps={{
-          startAdornment:<InputAdornment position="start">
-          <Search />
-        </InputAdornment>,
-        }} 
-        onChange={handleSearch}
-        variant="filled"
-        
-        placeholder="Search for a country..."
-      />
-      </div> 
-      <div className="inputDropDown">
+      <div className="inputSearch">    
         <TextField 
-          id="standard-select-currency"
-          select
-          onChange={handleFilter}
-          value={filterValues.field}
-          label="Filter by Region..."
-          variant="filled" 
-               
-        > 
-        {dropDownOptions.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-        </TextField>
-      </div>
+          id="filled"
+          type="string"      
+          InputProps={{
+            startAdornment:<InputAdornment position="start">
+            <Search />
+          </InputAdornment>,
+          }} 
+          onChange={handleSearch}
+          variant="filled"   
+          placeholder="Search for a country..."
+          hiddenLabel
+        />
+        </div> 
+        <div className="dropDownClearIcon">
+          <TextField 
+            id="standard-select-currency"
+            select
+            onChange={handleFilter}
+            value={!filterValues.field ? "" : filterValues.field}
+            label="Filter by Region..."
+            variant="filled"
+            className="inputDropDown" 
+
+          > 
+          {dropDownOptions.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+          </TextField>
+          {filterValues.field && (
+            <Clear onClick={() => setFilterValues({} as FilterValuesProps)}/>
+          )}
+          
+        </div>
+        
       </nav>
      
       <section className="country_container">
