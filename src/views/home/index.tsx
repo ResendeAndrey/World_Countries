@@ -10,10 +10,12 @@ import { FilterValuesProps, ICountriesProps } from './types';
 import { countryAPI } from '../../models/api';
 import { AxiosResponse } from 'axios';
 import CardCountries from '../../components/cardCountries';
+import Loading from '../../components/Loading';
 
 const Home: React.FC = () => {
   const [countries, setCountries] = useState<ICountriesProps[]>([] as ICountriesProps[])
   const [searchCountries, setSearchCountries] = useState<ICountriesProps[]>()
+  const [isLoading, setIsLoading] = useState(false)
   const [page, setPage] = useState(1)
   const rowsPerPage = 12
   const [filterValues, setFilterValues] = useState({} as FilterValuesProps)
@@ -24,11 +26,13 @@ const Home: React.FC = () => {
   const urlAPi = filterValues.field ? `/region/${filterValues.field}` : '/all'
 
   useEffect(() => {
+    setIsLoading(true)
      countryAPI.get(urlAPi).then((response: AxiosResponse) => {
       if(response){
         
         setCountries(response.data)
       }
+      setIsLoading(false)
     })
   },[urlAPi])
 
@@ -103,7 +107,11 @@ const Home: React.FC = () => {
      
       <section className="country_container">
         <div>
-        <CardCountries data={currentPosts}/>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <CardCountries data={currentPosts}/>
+        )}
         </div>
         <Pagination 
           defaultPage={0}
