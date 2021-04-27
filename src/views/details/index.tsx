@@ -1,6 +1,7 @@
 import { Button } from '@material-ui/core';
 import { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useHistory, useParams } from 'react-router';
 import Loading from '../../components/Loading';
 import { countryAPI } from '../../models/api';
@@ -51,6 +52,7 @@ const Details: React.FC = () => {
   return (
     
     <ContainerDetails>
+       <Helmet title={`Detalhes ${country?.name} | World Countries`}/>
       {country && !isLoading ? (
         <>
         <div>
