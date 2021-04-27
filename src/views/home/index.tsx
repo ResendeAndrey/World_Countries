@@ -71,7 +71,7 @@ const Home: React.FC = () => {
           type="string"      
           InputProps={{
             startAdornment:<InputAdornment position="start">
-            <Search />
+            <Search className="searchIcon"/>
           </InputAdornment>,
           }} 
           onChange={handleSearch}

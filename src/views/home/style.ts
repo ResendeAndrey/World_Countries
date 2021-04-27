@@ -62,7 +62,9 @@ export const HomPage = styled.div`
       color: ${props => props.theme.theme.colors.color}
     }
   }
-
+  .searchIcon {
+    color: ${props => props.theme.theme.colors.color};
+  }
   
   }
 `
