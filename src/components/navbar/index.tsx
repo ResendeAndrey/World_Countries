@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-
+import { Link } from 'react-router-dom'
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 import { NavbarContainer } from './style';
 
@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
   return (
     <NavbarContainer>
-      <a href=""><h1> Where is in the world?</h1></a>
+      <Link to="/"><h1> Where is in the world?</h1></Link>
       <div onClick={handleToggleTheme}>
         <NightsStayIcon />
         <span>{theme.title === "dark" ? "Light Mode" : "Dark Mode"}</span>

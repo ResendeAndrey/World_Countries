@@ -9,8 +9,12 @@ export const HomPage = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     margin-top: 1.5rem;
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+      
+    }
     >div:last-child {
      > div:last-child {
         width: 10rem;
@@ -30,6 +34,9 @@ export const HomPage = styled.div`
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    @media only screen and (max-width: 800px) {
+      flex-direction: column
+    }
     }  
   } 
     .inputDropDown {
@@ -46,5 +53,7 @@ export const HomPage = styled.div`
       color: ${props => props.theme.theme.colors.color}
     }
   }
+
+  
   }
 `

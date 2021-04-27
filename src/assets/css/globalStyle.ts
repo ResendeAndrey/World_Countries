@@ -31,7 +31,11 @@ a {
 }
 h1, h2, h3, h4, h5, h6, a, span{
   color: ${(props:any) => props.theme.theme.colors.color};
-}
 
+  @media only screen and (max-width: 800px) {
+      h1 {
+        font-size: 1rem;
+      }
+    }
 ` 
 
