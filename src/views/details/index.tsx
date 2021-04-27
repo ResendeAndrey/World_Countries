@@ -20,12 +20,7 @@ const Details: React.FC = () => {
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true)
-      await countryAPI.get(`/alpha/${countryId}`, {
-        onDownloadProgress: (progressEvent) => {
-          let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.timeStamp);
-          console.log(progressEvent)
-        }
-      }).then(async (response: AxiosResponse) => {
+      await countryAPI.get(`/alpha/${countryId}`).then(async (response: AxiosResponse) => {
         if(response) {
           setCountry(response.data)
           await countryAPI.get(`/region/${response.data.region}`).then((responseMoreCountries: AxiosResponse) => {
